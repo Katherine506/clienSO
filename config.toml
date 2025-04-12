@@ -2,7 +2,7 @@ baseURL = "https://katherine506.github.io/clienSO/"
 languageCode = "es"
 title = "Documentación Grupo 1"
 theme = "ananke"
-relativeUrls=true
+relativeUrls=false
 
 [params]
   description = "Documentación del proyecto de Sistemas Operativos"
