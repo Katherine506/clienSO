@@ -2,7 +2,7 @@ baseURL = "/"
 languageCode = "es"
 title = "Documentación Grupo 1"
 theme = "ananke"
-relativeUrls=false
+relativeUrls=true
 
 [params]
   description = "Documentación del proyecto de Sistemas Operativos"
