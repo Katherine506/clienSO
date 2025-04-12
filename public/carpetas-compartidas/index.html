@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Carpetas Compartidas y Cuotas | Documentación Grupo 1</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Configuración de las carpetas compartidas y sus cuotas">
+    <meta name="generator" content="Hugo 0.145.0">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    <meta name="author" content="Katherine Gonzalez">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="/carpetas-compartidas/">
+    
+
+    <meta property="og:url" content="/carpetas-compartidas/">
+  <meta property="og:site_name" content="Documentación Grupo 1">
+  <meta property="og:title" content="Carpetas Compartidas y Cuotas">
+  <meta property="og:description" content="Configuración de las carpetas compartidas y sus cuotas">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-04-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-04-04T00:00:00+00:00">
+
+  <meta itemprop="name" content="Carpetas Compartidas y Cuotas">
+  <meta itemprop="description" content="Configuración de las carpetas compartidas y sus cuotas">
+  <meta itemprop="datePublished" content="2025-04-04T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-04-04T00:00:00+00:00">
+  <meta itemprop="wordCount" content="803">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Carpetas Compartidas y Cuotas">
+  <meta name="twitter:description" content="Configuración de las carpetas compartidas y sus cuotas">
+
+      
+    
+	
+  </head><body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Documentación Grupo 1
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          Carpetas Compartidas y Cuotas
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>Configuración de las carpetas compartidas y sus cuotas</p>
+<h2 id="carpetas-compartidas-por-departamentos">Carpetas compartidas por departamentos</h2>
+<p>Antes de crear las carpetas compartidas por departamentos, creamos una partición D con el nombre Carpetas compartidas y le asignamos un espacio de 10GB. Esto se realiza con el objetivo de almacenar las carpetas compartidas en dicha partición, tal como lo solicita el enunciado. Ahora, continuamos con la creación de las carpetas compartidas.</p>
+<p>En el panel derecho, nos dirigimos a Servicios de archivos y de almacenamiento &gt; Recursos compartidos y hacemos clic derecho en &ldquo;Nuevo recurso compartido&hellip;&rdquo;.</p>
+<p>Dejamos el perfil de recurso compartido de archivos en &ldquo;Recurso compartido SMB - Rápido&rdquo; y seleccionamos Siguiente. En la sección Ubicación del recurso compartido, marcamos &ldquo;Seleccione por volumen&rdquo; y seleccionamos la partición D: tal como lo solicita el enunciado.</p>
+<p><img src="/images/53.png" alt="Figura 53"></p>
+<p>Seleccionamos Siguiente y, en Nombre del recurso compartido, ponemos el nombre del departamento correspondiente, en este caso “Contabilidad”. En la descripción, escribimos “Carpeta destinada al departamento de contabilidad” y, seguidamente, seleccionamos Siguiente.</p>
+<p><img src="/images/54.png" alt="Figura 54"></p>
+<p>En la siguiente pantalla, marcamos Habilitar enumeración basada en el acceso y hacemos clic en Siguiente.</p>
+<p><img src="/images/55.png" alt="Figura 55"></p>
+<p>En la siguiente pantalla, hacemos clic en Personalizar permisos&hellip;. En la sección Permisos, damos clic en Deshabilitar herencia &gt; Quitar todos los permisos heredados de este objeto. Luego, hacemos clic en Agregar &gt; Seleccionar una entidad de seguridad, buscamos el grupo del departamento, en este caso Contabilidad, le otorgamos todos los permisos excepto Control total y seleccionamos Aceptar.</p>
+<p><img src="/images/56.png" alt="Figura 56"></p>
+<p><img src="/images/57.png" alt="Figura 57"></p>
+<p>Ahora, vamos a la sección Compartir, seleccionamos Todos y, seguidamente, hacemos clic en Quitar. Luego, seleccionamos Agregar y repetimos el proceso del punto anterior para agregar Contabilidad y Administradores. A los Administradores les otorgamos Control total y a Contabilidad le damos todos los permisos excepto Control total. Seguidamente, hacemos clic en Aplicar y luego en Aceptar.</p>
+<p><img src="/images/58.png" alt="Figura 58"></p>
+<p>Para finalizar, en la pantalla del asistente, damos clic en Siguiente, revisamos que toda la configuración esté correcta y luego hacemos clic en Crear. Repetimos el proceso para cada carpeta del departamento hasta que se vea de la siguiente manera.</p>
+<p><img src="/images/59.png" alt="Figura 59"></p>
+<p>En el caso de la carpeta Pública, se crea de la misma forma, con la excepción de que los permisos deben configurarse de la siguiente manera.</p>
+<p><img src="/images/60.png" alt="Figura 60"></p>
+<p>Colocando los permisos de esta manera, todos los usuarios tendrán acceso de lectura a la carpeta Pública, pero sólo el personal de TI tendrá acceso de escritura.</p>
+<p>Seguidamente, vamos a Herramientas &gt; Administración DFS &gt; Espacios de nombres, hacemos clic derecho y seleccionamos Nuevo espacio de nombres&hellip;. Luego, digitamos el nombre del servidor, en nuestro caso Censisoper.</p>
+<p><img src="/images/61.png" alt="Figura 61"></p>
+<p>En el nombre del servidor colocamos “Departamentos” y clicamos en siguiente.</p>
+<p><img src="/images/62.png" alt="Figura 62"></p>
+<p>En la siguiente pantalla, copiamos el enlace que aparece en “Vista previa del espacio de nombres basado en dominio”, ya que lo necesitaremos más tarde. Luego, seleccionamos Siguiente en las pantallas restantes sin modificar las opciones predeterminadas.</p>
+<p>Una vez creado nuestro espacio de nombres damos clic derecho sobre el y seleccionamos Nueva carpeta…, en nombre ponemos el correspondiente al departamento en el caso del ejemplo Contabilidad y en Destinos de carpeta, clicamos en Agregar… &gt; Examinar y buscamos la ruta de la carpeta compartida correspondiente al departamento que creamos anteriormente y le damos a Aceptar.</p>
+<p><img src="/images/63.png" alt="Figura 63"></p>
+<p>Repetimos el proceso para cada una de las carpetas del departamento hasta que el espacio de nombres se vea de la siguiente manera.</p>
+<p><img src="/images/64.png" alt="Figura 64"></p>
+<p>Por último, nos dirigimos a Herramientas &gt; Administración de directivas de grupo y, dentro de la unidad organizativa CLIENSO, creamos una directiva llamada “Carpetas compartidas”.</p>
+<p>Una vez creada nuestra directiva, hacemos clic derecho en Editar &gt; Preferencias &gt; Configuración de Windows &gt; Asignaciones de unidades. Luego, hacemos clic derecho &gt; Nuevo &gt; Unidad asignada. En Acción, seleccionamos Reemplazar, en Ubicación, ponemos el enlace de nuestro espacio de nombres que copiamos anteriormente, marcamos Reconectar y la etiquetamos como “Shares”. En la sección Letra de unidad, marcamos Usar y ponemos la letra S. Dejamos todo lo demás tal como está, luego hacemos clic en Aplicar y finalmente en Aceptar.</p>
+<p><img src="/images/65.png" alt="Figura 65"></p>
+<p>Ahora, podemos acceder desde nuestros clientes y ver las carpetas que aparecen según el rol del usuario.</p>
+<h2 id="cuotas-carpetas-tamaños">Cuotas carpetas (tamaños)</h2>
+<p>Para crear las cuotas de las carpetas compartidas, vamos a Herramientas &gt; Administrador de recursos del servidor de archivos &gt; Administración de cuotas y hacemos clic derecho en &ldquo;Crear cuota&hellip;&rdquo;.</p>
+<p>En la ruta de acceso de la cuota, seleccionamos &ldquo;Examinar&rdquo; y buscamos la ubicación correspondiente a cada carpeta del departamento. Luego, en la sección “¿Cómo desea configurar las propiedades de la cuota?”, marcamos la opción &ldquo;Definir propiedades de cuota personalizadas&rdquo; y damos clic en &ldquo;Propiedades personalizadas&hellip;&rdquo;.</p>
+<p><img src="/images/66.png" alt="Figura 66"></p>
+<p>Seguidamente, digitamos el límite según lo indicado en el enunciado para el departamento seleccionado y damos clic en &ldquo;Aceptar&rdquo;, y luego nuevamente en &ldquo;Aceptar&rdquo; en la ventana principal para finalizar la configuración.</p>
+<p><img src="/images/67.png" alt="Figura 67"></p>
+<p>Repetimos el proceso para cada una de las carpetas de los departamentos hasta que las cuotas se vean de la siguiente manera.</p>
+<p><img src="/images/68.png" alt="Figura 68"></p>
+<hr>
+<div style="text-align: center; margin-top: 3rem;">
+  <a href="/" style="
+    display: inline-block;
+    background-color: #ff9800;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.2s ease;">
+    ← Volver al inicio
+  </a>
+</div>
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="/" >
+    &copy;  Documentación Grupo 1 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

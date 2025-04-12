@@ -1,0 +1,12 @@
+baseURL = "/"
+languageCode = "es"
+title = "Documentación Grupo 1"
+theme = "ananke"
+
+[params]
+  description = "Documentación del proyecto de Sistemas Operativos"
+  author = "Katherine Gonzalez"
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true

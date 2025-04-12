@@ -1,0 +1,72 @@
+{{ define "main" }}
+<main class="homepage">
+  <h1 style="text-align: center; margin-top: 2rem; color: orange">
+    Documentación para la Virtualización
+  </h1>
+
+  <!-- 💡 Este bloque muestra el contenido del _index.md -->
+  <div class="intro">{{ .Content }}</div>
+
+  <div class="grid">
+    {{ range .Site.RegularPages }}
+    <a class="card" href="{{ .RelPermalink }}">
+      <div class="card-content">
+        <h2>{{ .Title }}</h2>
+        <p>{{ .Summary }}</p>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+</main>
+
+<style>
+  body {
+    background-color: #121212;
+    font-family: Arial, sans-serif;
+  }
+
+  .homepage {
+    padding: 2rem;
+  }
+
+  .intro {
+    max-width: 800px;
+    margin: 2rem auto;
+    font-size: 1.2rem;
+    color: #ccc;
+    text-align: center;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .card {
+    background: #1e1e1e;
+    border-radius: 12px;
+    color: #fff;
+    text-decoration: none;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    background: #292929;
+  }
+
+  .card h2 {
+    margin-top: 0;
+    color: #ff9800;
+  }
+
+  .card p {
+    color: #ccc;
+    margin-bottom: 0;
+  }
+</style>
+{{ end }}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>DHCP | Documentación Grupo 1</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Configuración del DHCP">
+    <meta name="generator" content="Hugo 0.145.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    <meta name="author" content="Katherine Gonzalez">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="//localhost:1313/dhcp-copy/">
+    
+
+    <meta property="og:url" content="//localhost:1313/dhcp-copy/">
+  <meta property="og:site_name" content="Documentación Grupo 1">
+  <meta property="og:title" content="DHCP">
+  <meta property="og:description" content="Configuración del DHCP">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-04-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-04-04T00:00:00+00:00">
+
+  <meta itemprop="name" content="DHCP">
+  <meta itemprop="description" content="Configuración del DHCP">
+  <meta itemprop="datePublished" content="2025-04-04T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-04-04T00:00:00+00:00">
+  <meta itemprop="wordCount" content="460">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="DHCP">
+  <meta name="twitter:description" content="Configuración del DHCP">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Documentación Grupo 1
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          DHCP
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>Configuración del DHCP</p>
+<h2 id="configuración-del-dhcp">Configuración del DHCP</h2>
+<p>Una vez creado nuestro AD necesitamos configurar nuestro DHCP, para esto vamos a abrir una consola de Powershell con permisos de administrador. Antes, vamos en consola a poner el comando <code>Get-NetIPConfiguration</code> para saber a qué IP estamos conectados, nos debería salir de la siguiente manera.</p>
+<p>Figura 28: Corroboración de IP.</p>
+<p>Una vez corroboramos que estemos en la IP correcta, vamos a usar el comando <code>Get-WindowsFeature -Name *dhcp*</code>, esto para verificar que no esté instalado este servicio antes, si no lo está, aparecería de la siguiente manera.</p>
+<p>Figura 29: Verificación de DHCP instalado.</p>
+<p>Luego de esto usaremos el comando <code>Install-WindowsFeature -Name dhcp</code> para empezar la instalación del mismo, debemos esperar a que termine de cargar.</p>
+<p>Figura 30: Instalación DHCP.</p>
+<p>Una vez terminada la instalación, lo corroboramos con el comando <code>Get-WindowsFeature -Name *dhcp*</code>, nos aparecerá de la siguiente manera.</p>
+<p>Figura 31: Corroboración con el comando Get-WindowsFeature -Name <em>dhcp</em>.</p>
+<p>Acto siguiente vamos a instalar las herramientas del DHCP con el comando <code>Install-WindowsFeature -Name dhcp -IncludeManagementTools</code></p>
+<p>Figura 32: Instalación de las herramientas del DHCP.</p>
+<p>Una vez terminada la instalación, lo corroboramos con el comando <code>Get-WindowsFeature -Name *dhcp*</code>, nos aparecerá de la siguiente manera.</p>
+<p>Figura 33: Corroboración de la instalación de DHCP.</p>
+<p>Cuando tengamos instaladas ambas funciones vamos a empezar configurando el DHCP, empezaremos poniendo el siguiente comando:<br>
+<code>Add-DhcpServerInDC -DnsName clienso.org -IPAddress 192.168.0.1</code><br>
+Debemos poner el nombre del dominio que creamos junto con su dirección IP y le damos enter.</p>
+<p>Figura 34: configuración de DHCP.</p>
+<p>Si queremos verificar que se instaló el DHCP corremos el comando <code>Get-DhcpServerInDC</code> y nos mostrará el nombre de la DNS con su IP.</p>
+<p>Figura 35: Verificación de instalación DHCP.</p>
+<p>Luego de esto debemos agregar la seguridad de grupo con el comando <code>Add-DhcpServerSecurityGroup</code>.</p>
+<p>Después de esto vamos a configurar el rango de IPs donde se pueden conectar los clientes. Deben tener en cuenta que existen ciertas IPs reservadas, así que recomendamos usar la 192.168.0.20 hasta la 192.168.0.200. El comando completo sería:<br>
+<code>Add-DhcpServerv4Scope -Name &quot;Rango DHCP&quot; -StartRange 192.168.0.20 -EndRange 192.168.0.200 -SubnetMask 255.255.255.0</code></p>
+<p>Si queremos corroborar que se instaló correctamente usamos el comando <code>Get-DhcpServerv4Scope</code>.</p>
+<p>Figura 36: Verificación de instalación.</p>
+<p>Para activar el DHCP en las computadoras debemos usar el siguiente comando:<br>
+<code>Set-DhcpServer4OptionValue -DnsServer 192.168.0.1 -Router 192.168.0.1</code><br>
+Y con esto ya tenemos configurado el DHCP.</p>
+<p>Figura 37: Activación de DHCP.</p>
+<p>Una vez finalizado, veremos que tenemos un símbolo de warning en la bandera al lado de <strong>Administrar</strong> en la configuración del servidor. Le damos a <strong>Completar configuración de DHCP</strong>, luego a <strong>Siguiente</strong> y al final a <strong>Confirmar</strong> para terminar la configuración. Y con eso terminamos de configurar el DHCP.</p>
+<p><strong>Nota:</strong> Recomendamos luego de terminar la instalación reiniciar el sistema.</p>
+<p>Figura 38: Aviso de configuración DHCP.<br>
+Figura 39: Autorización posterior a la instalación de DHCP.</p>
+<hr>
+<div style="text-align: center; margin-top: 3rem;">
+  <a href="/" style="
+    display: inline-block;
+    background-color: #ff9800;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.2s ease;">
+    ← Volver al inicio
+  </a>
+</div>
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="//localhost:1313/" >
+    &copy;  Documentación Grupo 1 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

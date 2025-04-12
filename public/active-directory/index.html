@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Active Directory y DNS | Documentación Grupo 1</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Instalación del Active Directory y DNS">
+    <meta name="generator" content="Hugo 0.145.0">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    <meta name="author" content="Katherine Gonzalez">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="/active-directory/">
+    
+
+    <meta property="og:url" content="/active-directory/">
+  <meta property="og:site_name" content="Documentación Grupo 1">
+  <meta property="og:title" content="Active Directory y DNS">
+  <meta property="og:description" content="Instalación del Active Directory y DNS">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+
+  <meta itemprop="name" content="Active Directory y DNS">
+  <meta itemprop="description" content="Instalación del Active Directory y DNS">
+  <meta itemprop="wordCount" content="372">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Active Directory y DNS">
+  <meta name="twitter:description" content="Instalación del Active Directory y DNS">
+
+      
+    
+	
+  </head><body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Documentación Grupo 1
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          Active Directory y DNS
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>Instalación del Active Directory y DNS</p>
+<h2 id="creación-del-active-directory">Creación del Active Directory</h2>
+<p>Antes de realizar la instalación del <strong>Active Directory</strong>, como recomendación inicial debemos:</p>
+<ul>
+<li>Establecer la dirección IP del servidor.</li>
+<li>Esto facilitará la conexión de los clientes al dominio.</li>
+<li>Ir a la configuración de red y asignar una IP fija al servidor.</li>
+</ul>
+<p><strong>Figura 12</strong>: Selección de dirección IP del servidor, parte uno.
+<img src="/images/12.png" alt="Figura 12"></p>
+<p><strong>Figura 13</strong>: Selección de dirección IP del servidor, parte dos.
+<img src="/images/13.png" alt="Figura 13"></p>
+<p><strong>Figura 14</strong>: Selección de dirección IP del servidor, parte tres.
+<img src="/images/14.png" alt="Figura 14"></p>
+<blockquote>
+<p>💡 Entramos a la configuración de IPv4 y asignamos una dirección IP manualmente. Opcionalmente, podemos deshabilitar IPv6.</p></blockquote>
+<hr>
+<h3 id="agregar-roles-y-características">Agregar roles y características</h3>
+<ul>
+<li>Desde el panel principal seleccionamos: <strong>“Agregar roles y características”</strong>.</li>
+</ul>
+<p><strong>Figura 15</strong>: Configuración de servidor local.
+<img src="/images/15.png" alt="Figura 15"></p>
+<p><strong>Figura 16</strong>: Agregar roles y características.
+<img src="/images/16.png" alt="Figura 16"></p>
+<ul>
+<li>Elegimos <strong>“Instalación basada en características o en roles”</strong>.</li>
+</ul>
+<p><strong>Figura 17</strong>: Selección de tipo de instalación.
+<img src="/images/17.png" alt="Figura 17"></p>
+<ul>
+<li>En la selección de servidor, seleccionamos el servidor creado (<code>CenSisOper</code>).</li>
+</ul>
+<p><strong>Figura 18</strong>: Selección de servidor de destino.
+<img src="/images/18.png" alt="Figura 18"></p>
+<blockquote>
+<p>📝 <em>Podés cambiar el nombre del servidor desde el panel, pero requerirá reiniciar la VM.</em></p></blockquote>
+<hr>
+<h3 id="selección-del-rol-de-active-directory">Selección del rol de Active Directory</h3>
+<ul>
+<li>En la sección de roles, seleccionamos <strong>“Servicios de dominio de Active Directory”</strong>.</li>
+<li>Hugo nos preguntará si queremos agregar características necesarias → elegimos <strong>“Agregar características”</strong>.</li>
+</ul>
+<p><strong>Figura 19</strong>: Selección de rol.
+<img src="/images/19.png" alt="Figura 19"></p>
+<p><strong>Figura 20</strong>: Agregar características necesarias.
+<img src="/images/20.png" alt="Figura 20"></p>
+<ul>
+<li>Continuamos haciendo clic en <strong>“Siguiente”</strong> hasta llegar a la sección de confirmación.</li>
+<li>Marcamos la opción de <strong>reiniciar automáticamente el servidor después de instalar</strong>.</li>
+<li>Hacemos clic en <strong>“Instalar”</strong>.</li>
+</ul>
+<p><strong>Figura 21</strong>: Confirmación de selecciones de instalación.
+<img src="/images/21.png" alt="Figura 21"></p>
+<hr>
+<h3 id="promover-el-servidor-a-controlador-de-dominio">Promover el servidor a controlador de dominio</h3>
+<ul>
+<li>Una vez terminada la instalación, hacemos clic en <strong>“Promover este servidor a controlador de dominio”</strong>.</li>
+</ul>
+<p><strong>Figura 22</strong>: Progreso de instalación.
+<img src="/images/22.png" alt="Figura 22"></p>
+<ul>
+<li>En la opción de implementación elegimos:<br>
+→ <strong>“Agregar un nuevo bosque”</strong><br>
+→ Dominio: <code>clienso.org</code></li>
+</ul>
+<p><strong>Figura 23</strong>: Configuración de implementación.
+<img src="/images/23.png" alt="Figura 23"></p>
+<hr>
+<h3 id="configuración-del-controlador-de-dominio">Configuración del controlador de dominio</h3>
+<ul>
+<li>Nivel funcional del dominio: <code>Windows Server 2025</code></li>
+<li>Asignamos una contraseña segura para el dominio.</li>
+<li>Continuamos con los pasos siguientes.</li>
+</ul>
+<p><strong>Figura 24</strong>: Opciones del controlador de dominio.
+<img src="/images/24.png" alt="Figura 24"></p>
+<ul>
+<li>En las opciones adicionales, dejamos el nombre NetBIOS como <code>CLIENSO</code>.</li>
+</ul>
+<p><strong>Figura 25</strong>: Opciones adicionales.
+<img src="/images/25.png" alt="Figura 25"></p>
+<hr>
+<h3 id="finalizar-la-instalación">Finalizar la instalación</h3>
+<ul>
+<li>Podemos revisar todas las configuraciones seleccionadas.</li>
+<li>Si todo está correcto, hacemos clic en <strong>“Instalar”</strong>.</li>
+<li>Al finalizar, la máquina se reiniciará automáticamente.</li>
+</ul>
+<p><strong>Figura 26</strong>: Revisión final.
+<img src="/images/26.png" alt="Figura 26"></p>
+<p><strong>Figura 27</strong>: Comprobación de requisitos previos.
+<img src="/images/27.png" alt="Figura 27"></p>
+<hr>
+<div style="text-align: center; margin-top: 3rem;">
+  <a href="/" style="
+    display: inline-block;
+    background-color: #ff9800;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.2s ease;">
+    ← Volver al inicio
+  </a>
+</div>
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="/" >
+    &copy;  Documentación Grupo 1 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

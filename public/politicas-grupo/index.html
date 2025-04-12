@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Políticas de grupo | Documentación Grupo 1</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Configuraciones GPO">
+    <meta name="generator" content="Hugo 0.145.0">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    <meta name="author" content="Katherine Gonzalez">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="/politicas-grupo/">
+    
+
+    <meta property="og:url" content="/politicas-grupo/">
+  <meta property="og:site_name" content="Documentación Grupo 1">
+  <meta property="og:title" content="Políticas de grupo">
+  <meta property="og:description" content="Configuraciones GPO">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-04-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-04-04T00:00:00+00:00">
+
+  <meta itemprop="name" content="Políticas de grupo">
+  <meta itemprop="description" content="Configuraciones GPO">
+  <meta itemprop="datePublished" content="2025-04-04T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-04-04T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1870">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Políticas de grupo">
+  <meta name="twitter:description" content="Configuraciones GPO">
+
+      
+    
+	
+  </head><body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Documentación Grupo 1
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          Políticas de grupo
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>Configuraciones GPO</p>
+<p><strong>1. Cambiar fondo de pantalla por uno que la empresa decida</strong></p>
+<p>Guarda FondoEmpresarial.jpg en un recurso compartido accesible e.g (\servidor\fondos).</p>
+<p>Crea una nueva GPO llamada “FondoPantallaCorporativo” y dale <strong>click derecho &gt; Editar</strong></p>
+<p><img src="/images/72.png" alt="Figura 72"></p>
+<p>Luego ve a Configuración de usuario <strong>&gt; Plantillas administrativas&gt; Active Desktop</strong> y da clic en Active Desktop.</p>
+<p><img src="/images/73.png" alt="Figura 73"></p>
+<p>Habilita las configuraciones de Habilitar Active Desktop, No permitir cambios y Tapiz del escritorio</p>
+<p><img src="/images/74.png" alt="Figura 74"></p>
+<p>Ve a la carpeta compartida, la cual debe tener todos los accesos compartidos habilitados, y copiar la ruta de la imagen en formato JPG.</p>
+<p>Agrega la ruta de la imagen en Nombre del papel tapiz, en la configuración de Tapiz del escritorio que habilitamos en el punto anterior, luego elige el estilo de papel tapiz en rellenar, da aplicar y luego aceptar.</p>
+<p><img src="/images/75.png" alt="Figura 75"></p>
+<p>Abre la consola y corre el comando:</p>
+<p><code>gpupdate /force</code></p>
+<p><strong>2. Deshabilitar el acceso al panel de control para los usuarios que no son de TI</strong></p>
+<p>Crea nueva directiva llamada “Panel de Control”.
+<img src="/images/76.png" alt="Figura 76"></p>
+<p>Da click derecho <strong>&gt; Editar</strong></p>
+<p>Navega hasta: <strong>Configuración de usuario &gt; Plantillas administrativas &gt; Panel de control.</strong></p>
+<p>Busca y haz doble clic en: “Prohibir el acceso al Panel de control y a la configuración de PC”.</p>
+<p><img src="/images/77.png" alt="Figura 77"></p>
+<p>Selecciona Habilitada y haz clic en Aceptar.</p>
+<p><img src="/images/78.png" alt="Figura 78"></p>
+<p>Ahora, ve a aplicar la política solo a los usuarios que NO son de TI.</p>
+<p>En Ámbito ve a Filtrado de seguridad, se dejan los grupos a los que le quiero aplicar la directiva.</p>
+<p><img src="/images/79.png" alt="Figura 79"></p>
+<p>En delegación, agrega a Usuarios autenticados con permiso de lectura.</p>
+<p><img src="/images/80.png" alt="Figura 80"></p>
+<p><img src="/images/81.png" alt="Figura 81"></p>
+<p>Luego agrega al grupo de TI le permito leer y le doy “Denegar” a Aplicar directiva de grupo.</p>
+<p>Agregar el grupo TI y marca la opción Denegar en Aplicar la directiva de grupo.</p>
+<p><img src="/images/82.png" alt="Figura 82"></p>
+<p><img src="/images/83.png" alt="Figura 83"></p>
+<p><img src="/images/84.png" alt="Figura 84"></p>
+<p>Da “Aplicar” y “Aceptar”.</p>
+<p>Abre la consola y corre el comando:</p>
+<p><code>gpupdate /force</code></p>
+<p><strong>3. Definir cómo página inicial del Internet Explorer el sitio del sitio web</strong></p>
+<p>Crea una nueva GPO llamada “PaginaInicioExplorer” da click derecho editar</p>
+<p><img src="/images/86.png" alt="Figura 86"></p>
+<p>Ve a <strong>Configuración de usuario &gt; Plantillas administrativas &gt; Componentes de Windows y da click en Internet Explorer</strong>.</p>
+<p>Busca la configuración de “Deshabilitar en cambio de configuración de la página principal” habilitala.</p>
+<p>Pon en la opción de la página principal la URL del sitio web que desea, da aplicar y aceptar.</p>
+<p><img src="/images/87.png" alt="Figura 87"></p>
+<p>Abre la consola y corre el comando:</p>
+<p><code>gpupdate /force</code></p>
+<p><strong>4. Deshabilitar la ejecución de los ejecutables: notepad.exe y regedit.exe.</strong></p>
+<p>Crea una nueva GPO con el nombre “DesactivarEjecEjecutables”
+Haz clic derecho en la GPO que has creado y selecciona Editar.</p>
+<p><img src="/images/88.png" alt="Figura 88"></p>
+<p>En el Editor de administración de directivas de grupo, navega a <strong>Configuración de Usuario &gt; Directivas&gt; Configuración de Windows &gt; Configuración de Seguridad &gt; Directivas de restricción de software</strong></p>
+<p><img src="/images/89.png" alt="Figura 89"></p>
+<p>En Directivas de restricción de software, haz clic derecho en <strong>&ldquo;Restricciones de Software&rdquo; y selecciona &ldquo;Nuevas directivas de restricción de software&rdquo; &gt; &ldquo;Reglas adicionales&rdquo;</strong>.</p>
+<p>Haz clic derecho en &ldquo;Reglas adicionales&rdquo; y selecciona &ldquo;Regla de nueva ruta de acceso..&rdquo;.</p>
+<p><img src="/images/90.png" alt="Figura 90"></p>
+<p>Ruta: Especifica el camino completo del archivo ejecutable a bloquear:</p>
+<p>Para notepad.exe: <strong>C:\Windows\System32\notepad.exe</strong></p>
+<p>Para regedit.exe: <strong>C:\Windows\regedit.exe</strong></p>
+<p>Selecciona <strong>&ldquo;No permitido&rdquo;</strong>. Luego de <strong>Aplicar y Aceptar</strong>.</p>
+<p><img src="/images/91.png" alt="Figura 91"></p>
+<p><img src="/images/92.png" alt="Figura 92"></p>
+<p>Abre la consola y corre el comando</p>
+<p><code>gpupdate /force</code></p>
+<p><strong>5. Renombrar Usuarios Administrador y Temporal</strong></p>
+<p>Paso 1. Crear una GPO para renombrar los usuarios deseados</p>
+<p><img src="/images/93.png" alt="Figura 93"></p>
+<p>En la herramienta “Administración de directivas de grupo” clic derecho sobre “clienso.org” y clic en “Crear un GPO en este dominio y vincularlo aquí…”</p>
+<p><img src="/images/94.png" alt="Figura 94"></p>
+<p>En nombre escriba <strong>RenombrarUsuarios</strong> y clic en <strong>Aceptar</strong></p>
+<p>Ahora haga clic derecho sobre la nueva GPO y clic en <strong>Editar</strong></p>
+<p>Vaya a <strong>Configuración del equipo &gt; Directivas &gt; Configuración de Windows &gt; Configuración de seguridad &gt; Directivas locales &gt; Opciones de seguridad</strong>.</p>
+<p>En la lista de la ventana derecha busque <strong>Cuentas: estado de la cuenta de administrador</strong>, clic derecho y <strong>Propiedades</strong>.</p>
+<p><img src="/images/95.png" alt="Figura 95"></p>
+<p>En la ventana emergente marque la casilla <strong>Definir esta configuración de directiva:</strong> y clic en <strong>Habilitada</strong>.</p>
+<p>Clic en <strong>Aplicar y Aceptar</strong></p>
+<p>De vuelta en la lista de <strong>Opciones de seguridad</strong> busque <strong>Cuentas: estado de la cuenta de invitado</strong>.</p>
+<p>Clic derecho y <strong>Propiedades</strong> En la ventana emergente marque la casilla <strong>Definir esta configuración de directiva:</strong> y clic en “Habilitada”. Clic en <strong>Aplicar y Aceptar</strong>.</p>
+<p>De vuelta en la lista de <strong>Opciones de seguridad</strong> busque <strong>Cuentas: cambiar el nombre de la cuenta de administrador</strong> y marque la casilla <strong>Definir esta configuración de directiva</strong> ahora escriba <strong>usrmda</strong></p>
+<p><img src="/images/96.png" alt="Figura 96"></p>
+<p>Clic en <strong>Aplicar y Aceptar</strong></p>
+<p>Hacer lo mismo con <strong>Cuentas: cambiar el nombre de la cuenta de invitado</strong> y marque la casilla <strong>Definir esta configuración de directiva</strong> ahora escriba <strong>usrtmp</strong></p>
+<p><img src="/images/97.png" alt="Figura 97"></p>
+<p>¡Listo!</p>
+<p><strong>6. Carpetas personales en DFS</strong></p>
+<p><strong>Paso 1</strong>. Montar una nueva unidad de disco duro en la máquina virtual de servidor</p>
+<p><img src="/images/98.png" alt="Figura 98"></p>
+<p><strong>Paso 2</strong>. Montar el nuevo disco en el servidor, con la herramienta <strong>Crear y formatear particiones del disco duro</strong></p>
+<p><img src="/images/99.png" alt="Figura 99"></p>
+<p>Al ingresar por primera vez luego de montar una unidad se abre una ventana emergente, se debe inicializar el disco clicando en <strong>Aceptar</strong></p>
+<p><img src="/images/100.png" alt="Figura 100"></p>
+<p>Clic derecho sobre el nuevo disco y clic en <strong>Nuevo volumen simple…</strong></p>
+<p><img src="/images/101.png" alt="Figura 101"></p>
+<p>Seguir las indicaciones del asistente para nuevo volumen. Al inicio “Siguiente” En especificar el tamaño del volumen dejar el tamaño total y clic en “Siguiente”</p>
+<p><img src="/images/102.png" alt="Figura 102"></p>
+<p>Asignar la letra “P” a la unidad y “Siguiente”</p>
+<p><img src="/images/103.png" alt="Figura 103"></p>
+<p>En Formatear la partición, dejar los valores por defecto y “Siguiente”</p>
+<p><img src="/images/104.png" alt="Figura 104"></p>
+<p>Clic en “Finalizar”. Debería ver la nueva unidad de disco duro asignada a la letra P</p>
+<p><strong>Paso 3</strong>. Crear la carpeta compartida para albergar las subcarpetas personales Ir a la unidad P: y crear una nueva carpeta llamada “Personal”</p>
+<p><img src="/images/105.png" alt="Figura 105"></p>
+<p>Clic derecho sobre la carpeta, “Propiedades”, ir a la pestaña “Compartir”, clic sobre “Compartir…”</p>
+<p><img src="/images/106.png" alt="Figura 106"></p>
+<p>Sobre la barra de búsqueda, busque y agregue los grupos de seguridad “SYSTEM” y “Admins. del dominio” y clic en “Compartir” y luego en “Listo”</p>
+<p><img src="/images/107.png" alt="Figura 107"></p>
+<p>Vaya a la pestaña “Seguridad”, clic en “Opciones avanzadas”</p>
+<p><img src="/images/108.png" alt="Figura 108"></p>
+<p>Clic “Agregar”</p>
+<p><img src="/images/109.png" alt="Figura 109"></p>
+<p>Clic “Seleccionar una entidad de seguridad”</p>
+<p><img src="/images/110.png" alt="Figura 110"></p>
+<p>Buscar y seleccionar el grupo de seguridad “Usuarios autentificados” y asignar permisos de “Lectura y ejecución” y “Mostrar contenido de la carpeta” y clic en “Aceptar”</p>
+<p><img src="/images/111.png" alt="Figura 111"></p>
+<p>Clic en “Aplicar” y “Aceptar”</p>
+<p><img src="/images/112.png" alt="Figura 112"></p>
+<p><strong>Paso 4</strong>. Crear un nuevo recurso compartido con DFS para la carpeta personal.</p>
+<p>En la herramienta “Administrador del servidor” vaya a “Herramientas”, luego “Administración de DFS”</p>
+<p><img src="/images/113.png" alt="Figura 113"></p>
+<p>Clic en “Nuevo espacio de nombres”</p>
+<p><img src="/images/114.png" alt="Figura 114"></p>
+<p>En “Servidor” escriba “CENSISOPER.clienso.org” y clic en “Siguiente”</p>
+<p><img src="/images/115.png" alt="Figura 115"></p>
+<p>En “Nombre” escriba “Personal” y clic en “Siguiente”, en la ventana emergente de advertencia clic en “Sí”</p>
+<p><img src="/images/116.png" alt="Figura 116"></p>
+<p>En “Tipo de espacio de nombres” dejar como por defecto y clic en “Siguiente” En “Revisar la configuración…” clic en “Crear” y al finalizar clic en “Cerrar”</p>
+<p>Ahora debe crear una carpeta dentro del espacio de nombres “Personal”. Clic derecho sobre el DFS “Personal”, clic en “Nueva carpeta”</p>
+<p><img src="/images/117.png" alt="Figura 117"></p>
+<p>En “Nombre” escriba “Usuarios” y clic en “Agregar”</p>
+<p><img src="/images/118.png" alt="Figura 118"></p>
+<p>En “Ruta de acceso de destino de carpeta” escriba “\CENSISOPER.clienso.org\Personal” y clic en “Aceptar&quot; y clic en “Aceptar” de nuevo</p>
+<p><img src="/images/119.png" alt="Figura 119"></p>
+<p><strong>Paso 5</strong>. Crear la política de grupo para la asignación automática a cada usuario.</p>
+<p>En “Administrador del servidor” vaya a “Administración de directivas de grupo”</p>
+<p><img src="/images/120.png" alt="Figura 120"></p>
+<p>Haga clic derecho sobre “clienso.org” y clic en “Crear un GPO en este dominio y vincularlo aquí…”</p>
+<p><img src="/images/121.png" alt="Figura 121"></p>
+<p>En nombre escriba <strong>CarpetasPersonalesDFS</strong> y clic en “Aceptar” Haga clic derecho sobre la GPO “CarpetasPersonalesDFS” y clic “Editar” Ir a <strong>Configuración de usuario &gt; Preferencias &gt; Configuración de Windows &gt; Asignaciones de unidades”, haga clic derecho sobre “Asignaciones de unidades</strong>, clic “Nuevo”, clic “Unidad asignada”</p>
+<p><img src="/images/122.png" alt="Figura 122"></p>
+<p>En la ventana emergente, en la pestaña “General” asegure la siguiente configuración:</p>
+<p><strong>· Acción: <code>Crear</code></strong></p>
+<p><strong>· Marcar <code>Reconectar</code></strong></p>
+<p><strong>· Ubicación: <code>\CENSISOPER.clienso.org\Personal\Usuarios%username%</code></strong></p>
+<p><strong>· Letra de unidad: P: <code>Clic en “Aplicar” y “Aceptar”</code></strong></p>
+<p><img src="/images/123.png" alt="Figura 123"></p>
+<p>Ahora debe crear una Tarea Programada para que la GPO asigne a cada nuevo usuario su propia carpeta personal.</p>
+<p>En el “Editor de administración de directivas de grupo” vaya a “Configuración de usuario &gt; Preferencias &gt; Panel de control &gt; Tareas programadas”, clic derecho sobre “Tareas programadas”, clic “Nuevo”, clic.</p>
+<p><img src="/images/124.png" alt="Figura 124"></p>
+<p>Asegure la siguiente configuración:</p>
+<p><strong>Pestaña General</strong></p>
+<p><strong>Nombre:</strong> &ldquo;Establecer permisos de carpeta personal&rdquo;</p>
+<p><strong>Descripción:</strong> &ldquo;Configura permisos exclusivos para la carpeta personal del usuario&rdquo;</p>
+<p><strong>Cuenta de usuario:</strong> Seleccione &ldquo;NT AUTHORITY\System&rdquo;</p>
+<p><strong>Marque</strong> &ldquo;Ejecutar con los máximos privilegios&rdquo;</p>
+<p><strong>Marque</strong> “Oculto”</p>
+<p><strong>Seleccione</strong> &ldquo;Configurar para Windows 7&rdquo;</p>
+<p><img src="/images/125.png" alt="Figura 125"></p>
+<p><strong>Pestaña Desencadenadores</strong></p>
+<p><strong>Haga clic en</strong> Nuevo</p>
+<p><strong>Establezca</strong> &ldquo;Al iniciar sesión&rdquo;</p>
+<p>Asegúrese de que está configurado para &ldquo;Usuario&rdquo;</p>
+<p><img src="/images/126.png" alt="Figura 126"></p>
+<p><strong>Pestaña Acciones</strong></p>
+<p><strong>Haga clic en</strong> “Nuevo”</p>
+<p><strong>Acción:</strong> &ldquo;Iniciar un programa&rdquo;</p>
+<p><strong>Programa o script:</strong> powershell.exe</p>
+<p><strong>Agregar argumentos:</strong>
+-NoProfile -ExecutionPolicy Bypass -Command &ldquo;Try { $folder = &lsquo;\clienso.org\Personal\Usuarios&rsquo; + $env:USERNAME; if (!(Test-Path $folder)) { New-Item -Path $folder -ItemType Directory }; icacls $folder /grant (&lsquo;clienso&rsquo; + $env:USERNAME + &lsquo;:(OI)(CI)(F)&rsquo;) /inheritance:r } Catch { $_.Exception.Message | Out-File &lsquo;C:\GPO_Permissions_Error.log&rsquo; -Append }&rdquo;</p>
+<p><img src="/images/127.png" alt="Figura 127"></p>
+<p>Aún en el “Editor de administración de directivas de grupo”, vaya a:</p>
+<p><strong>Configuración del Equipo &gt; Directivas &gt; Configuración de Windows &gt; Configuración de seguridad &gt; Directivas locales &gt; Asignación de derechos de usuario</strong>.</p>
+<p>En la lista de la derecha busque “Iniciar sesión como proceso por lotes” y dar clic derecho sobre él y clic en “Propiedades”.</p>
+<p><img src="/images/128.png" alt="Figura 128"></p>
+<p>En la ventana emergente marque “Definir esta configuración de directiva” y clic en “Agregar usuario o grupo…”, escriba <strong>NT AUTHORITY\System</strong>, clic en “Aceptar”</p>
+<p><img src="/images/129.png" alt="Figura 129"></p>
+<p>De vuelta en el “Administrador de directivas de grupo” seleccione la GPO “CarpetasPersonalesDFS”, en la pestaña “Delegación”, agregue los grupos de seguridad de cada departamento</p>
+<p><img src="/images/130.png" alt="Figura 130"></p>
+<p>¡Listo!</p>
+<p><strong>7. Folder redirection</strong></p>
+<p>Para poder tener re direction de lo que viene siendo de nuestros archivos en ‘Documentos’ a un espacio de memoria de red necesitaremos los siguientes requisitos:</p>
+<p>Primeramente necesitaremos en nuestros recursos compartidos en nuestro disco D:/ vamos a crear un folder llamado ‘Folder Redirection o del nombre que nos parezca mejor.</p>
+<p><img src="/images/131.png" alt="Figura 131"></p>
+<p>Al ir a recursos compartidos crearemos un nuevo recurso de perfil de recurso SMB - Rápido , en lo que es la ubicación debe ser la carpeta que creamos, y en el nombre del recurso lo que haremos será poner el nombre de la carpeta, pero con el signo de dólar el final de la misma. la cual quedaría así.</p>
+<p><img src="/images/132.png" alt="Figura 132"></p>
+<p>En términos de permisos deben de quedar de la siguiente manera:</p>
+<p><img src="/images/133.png" alt="Figura 133"></p>
+<p>En configuraciones seleccionamos: <strong>Habilitar enumeración basada en el acceso y permitir almacenamiento en caché del recurso compartido.</strong></p>
+<p>Aceptamos y continuamos con la instalación.</p>
+<p>Al crear esta recuerden en nombre del recurso compartido, guardar esta dirección que la usaremos más adelante.</p>
+<p><img src="/images/134.png" alt="Figura 134"></p>
+<p>Una vez finalizado esto, iremos a nuestras políticas de grupo y crearemos una llamada Folder Redirection.</p>
+<p>Al tener creada la directiva de grupo, le damos <strong>editar &gt; Configuración de usuario &gt; Directivas &gt; Configuración de Windows -&gt; Redirección de carpetas &gt; Documentos de damos propiedades</strong>.</p>
+<p>Dentro de esta nos preguntará por una ruta de acceso a la, la cual pondremos la ruta que habíamos guardado anteriormente.</p>
+<p>Y en configuración, seleccionamos la opción que dice ‘Mover el contenido de Documentos a la nueva ubicación’.</p>
+<p>En destino la configuración es básica.</p>
+<p><img src="/images/135.png" alt="Figura 135"></p>
+<p><img src="/images/136.png" alt="Figura 136"></p>
+<p>Para finalizar, iremos a la administración del DFS y debemos crear un espacio para el folder redirection.</p>
+<p>Así que debemos ir a la administración del DFS y cerrar un espacio de nombre, el cual llamaremos redirection.</p>
+<p>Dentro de esta creamos una carpeta llamada Mis Documentos por ejemplo. Se vería así.</p>
+<p><img src="/images/137.png" alt="Figura 137"></p>
+<p>Una Vez creada esta, iremos a nuestra política de grupo</p>
+<p><strong>editar -&gt; configuración de usuario &gt; Preferencias &gt; Configuración de Windows &gt; Asignación de unidades</strong> e iremos a crear una unidad Acción debe ser <strong>reemplazar &gt; ubicación debe ser del espacio del DFS &gt; Opción de reconectar</strong> y la etiquetamos como redirection y debe de quedar de la siguiente manera. Con esto crearemos el folder redirection.</p>
+<p><img src="/images/138.png" alt="Figura 138"></p>
+<hr>
+<div style="text-align: center; margin-top: 3rem;">
+  <a href="/" style="
+    display: inline-block;
+    background-color: #ff9800;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.2s ease;">
+    ← Volver al inicio
+  </a>
+</div>
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="/" >
+    &copy;  Documentación Grupo 1 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
