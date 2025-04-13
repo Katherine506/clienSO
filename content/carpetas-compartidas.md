@@ -90,7 +90,7 @@ Repetimos el proceso para cada una de las carpetas de los departamentos hasta qu
 ---
 
 <div style="text-align: center; margin-top: 3rem;">
-  <a href="/" style="
+  <a href="https://katherine506.github.io/clienSO/" style="
     display: inline-block;
     background-color: #ff9800;
     color: white;
