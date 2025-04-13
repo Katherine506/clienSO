@@ -35,7 +35,7 @@ En la configuración:
 Al final, confirmamos la información.
 
 **Figura 40**: Confirmación de la instalación del Certificate Authority.
-![Figura 40](/images/40.png)
+![Figura 40](../images/40.png)
 
 Luego aparecerá la confirmación de la CA, y hacemos clic en **Configurar** para terminar la instalación.
 
@@ -48,7 +48,7 @@ Una vez instalados los roles, necesitaremos conectarnos a internet para instalar
 Descargamos la versión en español (x64) desde la web oficial.
 
 **Figura 41**: Imagen de la página para la instalación del módulo URL Rewrite.
-![Figura 41](/images/41.png)
+![Figura 41](../images/41.png)
 
 Una vez descargado, ejecutamos el instalador desde la carpeta de descargas.
 
@@ -59,12 +59,12 @@ Una vez descargado, ejecutamos el instalador desde la carpeta de descargas.
 - Luego de la instalación, volver a configurar la IP estática y la red interna en el virtualizador
 
 **Figura 42**: Verificación de la instalación del URL Rewrite.
-![Figura 42](/images/42.png)
+![Figura 42](../images/42.png)
 
 ---
 
 <div style="text-align: center; margin-top: 3rem;">
-  <a href="/" style="
+  <a href="https://katherine506.github.io/clienSO/" style="
     display: inline-block;
     background-color: #ff9800;
     color: white;
