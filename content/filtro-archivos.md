@@ -13,15 +13,15 @@ Herramientas > Administrador de recursos del servidor de archivos > Administraci
 
 Llenamos el campo de nombre con “Bloquear archivos .mp3 y .avi” y, en la sección de grupos de archivos, seleccionamos "Crear...".
 
-![Figura 69](/images/69.png)
+![Figura 69](../images/69.png)
 
 Seguidamente, nombramos el grupo de archivos como “Archivos .mp3 y .avi” y, en la sección de archivos incluidos, escribimos .mp3 y seleccionamos "Agregar", luego escribimos .avi, seleccionamos nuevamente "Agregar" y, para finalizar, hacemos clic en "Aceptar".
 
-![Figura 70](/images/70.png)
+![Figura 70](../images/70.png)
 
 Luego, en la sección de grupos de archivos, seleccionamos “Archivos .mp3 y .avi” y finalizamos haciendo clic en "Aceptar".
 
-![Figura 71](/images/71.png)
+![Figura 71](../images/71.png)
 
 Por último, vamos a:
 
@@ -32,7 +32,7 @@ Seleccionamos la ruta de las carpetas compartidas de los departamentos de la emp
 ---
 
 <div style="text-align: center; margin-top: 3rem;">
-  <a href="/" style="
+  <a href="/_index.md" style="
     display: inline-block;
     background-color: #ff9800;
     color: white;
