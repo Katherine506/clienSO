@@ -22,7 +22,7 @@ Antes de realizar la instalación del **Active Directory**, como recomendación 
 ![Figura 13](../images/13.png)
 
 **Figura 14**: Selección de dirección IP del servidor, parte tres.
-![Figura 14](/images/14.png)
+![Figura 14](../images/14.png)
 
 > 💡 Entramos a la configuración de IPv4 y asignamos una dirección IP manualmente. Opcionalmente, podemos deshabilitar IPv6.
 
@@ -33,20 +33,20 @@ Antes de realizar la instalación del **Active Directory**, como recomendación 
 - Desde el panel principal seleccionamos: **“Agregar roles y características”**.
 
 **Figura 15**: Configuración de servidor local.
-![Figura 15](/images/15.png)
+![Figura 15](../images/15.png)
 
 **Figura 16**: Agregar roles y características.
-![Figura 16](/images/16.png)
+![Figura 16](../images/16.png)
 
 - Elegimos **“Instalación basada en características o en roles”**.
 
 **Figura 17**: Selección de tipo de instalación.
-![Figura 17](/images/17.png)
+![Figura 17](../images/17.png)
 
 - En la selección de servidor, seleccionamos el servidor creado (`CenSisOper`).
 
 **Figura 18**: Selección de servidor de destino.
-![Figura 18](/images/18.png)
+![Figura 18](../images/18.png)
 
 > 📝 _Podés cambiar el nombre del servidor desde el panel, pero requerirá reiniciar la VM._
 
@@ -58,17 +58,17 @@ Antes de realizar la instalación del **Active Directory**, como recomendación 
 - Hugo nos preguntará si queremos agregar características necesarias → elegimos **“Agregar características”**.
 
 **Figura 19**: Selección de rol.
-![Figura 19](/images/19.png)
+![Figura 19](../images/19.png)
 
 **Figura 20**: Agregar características necesarias.
-![Figura 20](/images/20.png)
+![Figura 20](../images/20.png)
 
 - Continuamos haciendo clic en **“Siguiente”** hasta llegar a la sección de confirmación.
 - Marcamos la opción de **reiniciar automáticamente el servidor después de instalar**.
 - Hacemos clic en **“Instalar”**.
 
 **Figura 21**: Confirmación de selecciones de instalación.
-![Figura 21](/images/21.png)
+![Figura 21](../images/21.png)
 
 ---
 
@@ -77,14 +77,14 @@ Antes de realizar la instalación del **Active Directory**, como recomendación 
 - Una vez terminada la instalación, hacemos clic en **“Promover este servidor a controlador de dominio”**.
 
 **Figura 22**: Progreso de instalación.
-![Figura 22](/images/22.png)
+![Figura 22](../images/22.png)
 
 - En la opción de implementación elegimos:  
   → **“Agregar un nuevo bosque”**  
   → Dominio: `clienso.org`
 
 **Figura 23**: Configuración de implementación.
-![Figura 23](/images/23.png)
+![Figura 23](../images/23.png)
 
 ---
 
@@ -95,12 +95,12 @@ Antes de realizar la instalación del **Active Directory**, como recomendación 
 - Continuamos con los pasos siguientes.
 
 **Figura 24**: Opciones del controlador de dominio.
-![Figura 24](/images/24.png)
+![Figura 24](../images/24.png)
 
 - En las opciones adicionales, dejamos el nombre NetBIOS como `CLIENSO`.
 
 **Figura 25**: Opciones adicionales.
-![Figura 25](/images/25.png)
+![Figura 25](../images/25.png)
 
 ---
 
@@ -111,15 +111,15 @@ Antes de realizar la instalación del **Active Directory**, como recomendación 
 - Al finalizar, la máquina se reiniciará automáticamente.
 
 **Figura 26**: Revisión final.
-![Figura 26](/images/26.png)
+![Figura 26](../images/26.png)
 
 **Figura 27**: Comprobación de requisitos previos.
-![Figura 27](/images/27.png)
+![Figura 27](../images/27.png)
 
 ---
 
 <div style="text-align: center; margin-top: 3rem;">
-  <a href="/index.md" style="
+  <a href="/_index.md" style="
     display: inline-block;
     background-color: #ff9800;
     color: white;
