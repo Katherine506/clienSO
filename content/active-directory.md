@@ -119,7 +119,7 @@ Antes de realizar la instalación del **Active Directory**, como recomendación 
 ---
 
 <div style="text-align: center; margin-top: 3rem;">
-  <a href="/" style="
+  <a href="/index.md" style="
     display: inline-block;
     background-color: #ff9800;
     color: white;
