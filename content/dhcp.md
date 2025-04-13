@@ -82,7 +82,7 @@ Una vez finalizado, veremos que tenemos un símbolo de warning en la bandera al 
 ---
 
 <div style="text-align: center; margin-top: 3rem;">
-  <a href="/_index.md" style="
+  <a href="https://katherine506.github.io/clienSO/" style="
     display: inline-block;
     background-color: #ff9800;
     color: white;
