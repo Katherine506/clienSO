@@ -16,10 +16,10 @@ Antes de realizar la instalación del **Active Directory**, como recomendación 
 - Ir a la configuración de red y asignar una IP fija al servidor.
 
 **Figura 12**: Selección de dirección IP del servidor, parte uno.
-![Figura 12](https://github.com/Katherine506/clienso/static/images/12.png)
+![Figura 12](https://katherine506.github.io/clienSO/images/12.png)
 
 **Figura 13**: Selección de dirección IP del servidor, parte dos.
-![Figura 13](/images/13.png)
+![Figura 13](../static/images/13.png)
 
 **Figura 14**: Selección de dirección IP del servidor, parte tres.
 ![Figura 14](/images/14.png)
