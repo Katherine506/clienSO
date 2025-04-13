@@ -22,7 +22,7 @@ Haz clic derecho en la sección en blanco → **Nuevo → Grupo**.
 Para crear un nuevo usuario:  
 Haz clic derecho en la sección en blanco → **Nuevo → Usuario**.
 
-![Figura 139](/images/139.png)
+![Figura 139](../images/139.png)
 
 En la creación del usuario, agregamos:
 
@@ -38,12 +38,12 @@ Finalmente, para agregar usuarios a un grupo:
 2. En **Nombres del objeto**, escribimos el nombre del grupo al que queremos unirnos
 3. Clic en **Aceptar**
 
-![Figura 140](/images/140.png)
+![Figura 140](../images/140.png)
 
 ---
 
 <div style="text-align: center; margin-top: 3rem;">
-  <a href="/" style="
+  <a href="https://katherine506.github.io/clienSO/" style="
     display: inline-block;
     background-color: #ff9800;
     color: white;
